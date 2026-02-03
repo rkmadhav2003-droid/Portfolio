@@ -28,15 +28,17 @@ window.onscroll = () => {
             });
         }
     });
+
+    /*========== remove toggle icon and navbar when click navbar link (scroll) ==========*/
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
 };
 
-/*========== remove menu icon navbar when click navbar link (scroll) ==========*/
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-    });
-});
+/*========== menu icon navbar ==========*/
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
 
 /*========== swiper ==========*/
 

@@ -27,8 +27,9 @@
 
 html {
     font-size: 62.5%;
-    overflow-x: hidden;   /* hide horizontal scroll only */
-    overflow-y: auto; 
+    overflow-x: hidden;
+    /* hide horizontal scroll only */
+    overflow-y: auto;
 }
 
 body {
@@ -47,7 +48,7 @@ body {
     display: flex;
     align-items: center;
     z-index: 100;
-    transition: .5s ;
+    transition: .5s;
 }
 
 .header.sticky {
@@ -71,7 +72,7 @@ body {
     margin-right: 3.5rem;
 }
 
-.header.sticky .navbar a{
+.header.sticky .navbar a {
     color: var(--text--color);
 }
 
@@ -99,6 +100,12 @@ body {
     color: var(--white--color);
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text--color);
+    display: none;
 }
 
 #darkMode-icon:hover {
@@ -173,7 +180,7 @@ section {
     color: var(--white--color);
     letter-spacing: .1rem;
     font-weight: 600;
-    border: .2rem  solid transparent;
+    border: .2rem solid transparent;
     transition: .5s ease;
 }
 
@@ -210,18 +217,27 @@ section {
 }
 
 @keyframes professionRotate {
-    0%,20% {
+
+    0%,
+    20% {
         transform: rotate(0deg);
     }
-    25%,45% {
+
+    25%,
+    45% {
         transform: rotate(-90deg);
     }
-    50%,70% {
+
+    50%,
+    70% {
         transform: rotate(-180deg);
     }
-    75%,95% {
+
+    75%,
+    95% {
         transform: rotate(-270deg);
     }
+
     100% {
         transform: rotate(-360deg);
     }
@@ -240,7 +256,7 @@ section {
     padding: 13px 0;
 }
 
-.home .professional-box .profession:nth-child(1) i{
+.home .professional-box .profession:nth-child(1) i {
     margin-right: 15px;
 }
 
@@ -249,7 +265,7 @@ section {
     padding-bottom: 20px;
 }
 
-.home .profession i{
+.home .profession i {
     font-size: 3.8rem;
 }
 
@@ -271,7 +287,7 @@ section {
     position: absolute;
     top: 0;
     right: 0;
-    
+
     width: 0;
     height: 0;
     border-top: 384px solid var(--main--color);
@@ -281,7 +297,7 @@ section {
 }
 
 
-.home-img img{
+.home-img img {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -302,7 +318,7 @@ span {
     padding: 2rem 7% 2rem;
 }
 
-.about-img img{
+.about-img img {
     width: 30vw;
     border-radius: 9px;
     box-shadow: 0 .2rem .5rem var(--shadow--color);
@@ -759,15 +775,171 @@ span {
 }
 
 /* responsive design */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+
+    .home .professional-container {
+        height: 85.8rem;
+    }
+
+    .home .professional-container .professional-box {
+        right: -12rem;
+        height: 85.8rem;
+    }
+
+    .home .professional-container .overlay {
+        right: -9rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .home .professional-container .professional-box {
+        right: -22rem;
+    }
+
+    .home .professional-container .overlay {
+        right: -15rem;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .navbar a:nth-child(1),
+    .navbar a:nth-child(2) {
+        color: var(--text--color);
+    }
+
+    .navbar a.active::before {
+        background: var(--main--color);
+        opacity: .7;
+    }
+
+    .home .home-content {
+        max-width: 50rem;
+    }
+
+    .home .professional-container .professional-box {
+        right: -45rem;
+    }
+
+    .home .professional-container .overlay {
+        right: -39.5rem;
+    }
+
+    .home-img img {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
-    .education-container {
-        grid-template-columns: 1fr;
+    #menu-icon {
+        display: block;
     }
 
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr);
+    #darkMode-icon {
+        position: absolute;
+        right: 7rem;
+        font-size: 2.6rem;
+        color: var(--text--color);
+        margin-bottom: .1rem;
     }
 
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg--color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text--color);
+    }
+
+    .navbar a:nth-child(1),
+    .navbar a:nth-child(2) {
+        color: var(--text--color);
+    }
+
+    .navbar a.active {
+        color: var(--main--color);
+    }
+
+    .navbar a::before {
+        display: none;
+    }
+
+    .home {
+        padding: 12rem 3% 5rem;
+        /* Increased top padding to prevent overlap */
+        justify-content: center;
+        text-align: center;
+        min-height: 80vh;
+        /* Reduced height requirement since image is gone */
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-content .social-media a {
+        margin: 2.5rem .75rem 3rem;
+    }
+
+    .home .professional-container {
+        display: none;
+    }
+
+    .home-img img {
+        display: none;
+        /* User requested to remove image on mobile */
+    }
+
+    .home .home-img {
+        display: none;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about-content h2 {
+        text-align: center;
+    }
+
+    .about-img img {
+        width: 70vw;
+        margin-top: -2rem;
+    }
+
+    .education-container,
+    .skills-container,
     .projects-container {
         grid-template-columns: 1fr;
     }
@@ -783,16 +955,45 @@ span {
     }
 }
 
-@media (max-width: 480px) {
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-
+@media (max-width: 617px) {
     .projects-container {
         grid-template-columns: 1fr;
     }
+}
 
-    .projects-box {
-        min-width: 100%;
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    #darkMode-icon {
+        right: 6rem;
+    }
+
+    .home {
+        padding: 12rem 3% 5rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 365px) {
+    .about-img img {
+        width: 90vw;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+    }
+
+    .footer p {
+        text-align: center;
+        margin-top: 2rem;
     }
 }
