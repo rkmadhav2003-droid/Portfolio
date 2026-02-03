@@ -58,12 +58,22 @@ if (darkModeIcon) {
         }
     };
     
-    // Load saved theme preference
+    // Load saved theme preference (default to dark mode)
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+
+    if (savedTheme === 'dark' || savedTheme === null) {
+        // Default and saved dark theme
         document.body.classList.add('dark-mode');
         darkModeIcon.classList.remove('bx-moon');
         darkModeIcon.classList.add('bx-sun');
+        if (savedTheme === null) {
+            localStorage.setItem('theme', 'dark');
+        }
+    } else {
+        // Explicitly saved light theme
+        document.body.classList.remove('dark-mode');
+        darkModeIcon.classList.remove('bx-sun');
+        darkModeIcon.classList.add('bx-moon');
     }
 }
 
